@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "campus-drops": {
+      "hosting": {
+        "untitled": [
+          "campus-drops"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "campus-drops"
+  }
+}
