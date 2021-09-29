@@ -1,0 +1,26 @@
+<nav class="navbar navbar-light">
+  <h4 class="navbar-brand">Sign Up</h4>
+  <ul class="navbar-nav">
+    <li class="nav-item">
+      <a [routerLink]="'/aggiesignin'" class="nav-link">Aggie Sign In</a>
+    </li>
+    <li class="nav-item">
+      <a [routerLink]="'/driversignin'" class="nav-link driver-signup-link">Driver Sign In</a>
+    </li>
+  </ul>
+</nav>
+
+
+<div class="form-container">
+
+  <label for="email">Email</label>
+  <input ngModel name="email" #email="ngModel" id="email" type="text" class="form-control  textFields">
+
+  <label for="password">Password</label>
+  <input ngModel name="password" #password="ngModel" id="password" type="text" class="form-control textFields">
+
+  <button (click)="signUserIn(email, password)" class="btn btn-primary auth-btn signup">Sign In</button>
+  <a [routerLink]="'/forgotpassword'" class="forgot-password nav-link mt-3 mb-3">Forgot Password?</a>
+  <label class="existingMember">Not a Member?</label>
+  <button [routerLink]="'/vendorsignup'" class="btn btn-primary auth-btn">Sign Up</button>
+</div>

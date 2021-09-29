@@ -1,0 +1,60 @@
+.navbar-brand {
+  padding-left: 300px;
+}
+.navbar {
+  background-color: white;
+  padding-bottom: 100px;
+}
+.navbar-nav {
+  flex-direction: row;
+}
+.nav-item {
+  padding: 10px 70px 20px 50px;
+}
+.nav-link:link {
+  color: black;
+  text-decoration: underline;
+}
+.driver-signup-link {
+  padding-right: 90px;
+}
+
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-left: 400px;
+  padding-right: 400px;
+
+}
+
+.profile-imageview {
+  width: 150px;
+  height: 150px;
+  margin-bottom: 30px;
+  border-radius: 50%;
+  justify-content: center;
+
+}
+
+.auth-btn {
+  margin-bottom: 30px;
+  border-radius: 35px;
+  width: 220px;
+  align-content: center;
+  height: 48px;
+  background-color: #002D74;
+  border-width: 0px;
+}
+
+.signup {
+  margin-top: 10px;
+}
+
+
+.textFields {
+  width: 220px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+}
