@@ -1,0 +1,56 @@
+<nav class="navbar navbar-light">
+  <h4 class="navbar-brand">Sign Up</h4>
+  <ul class="navbar-nav">
+    <li class="nav-item">
+      <a [routerLink]="'/'" class="nav-link">Aggie Sign Up</a>
+    </li>
+    <li class="nav-item">
+      <a [routerLink]="'/vendorsignup'" class="nav-link driver-signup-link">Vendor Sign Up</a>
+    </li>
+  </ul>
+</nav>
+    <div class="form-container">
+      <img class="profile-imageview" [src] ="profileImagePath">
+      <button type="button" class="btn btn-primary auth-btn" (click)="fileInput.click()">
+        <span>Select an Image</span>
+        <input #fileInput type="file" (change)="onFileInput($event)" style="display:none;" />
+      </button>
+    </div>
+<div class="registration-container">
+  <div class="item">
+    <label class="center-item">First Name</label>
+    <input ngModel name="firstName" #firstName="ngModel" type="text" class="form-control padding-below-tf textFields">
+
+    <label>Last Name</label>
+    <input ngModel name="lastName" #lastName="ngModel" type="text" class="form-control padding-below-tf textFields">
+
+    <label>Email</label>
+    <input ngModel name="email" #email="ngModel" type="text" class="form-control padding-below-tf textFields">
+
+    <label>Password</label>
+    <input ngModel name="password" #password="ngModel" type="text" class="form-control padding-below-tf textFields">
+
+  </div>
+  <div class="item">
+    <label>License Plate #</label>
+    <input ngModel name="licensePlate" #licensePlate="ngModel" type="text" class="form-control padding-below-tf textFields">
+
+    <label>Vehicle Make</label>
+    <input ngModel name="carMake" #carMake="ngModel" type="text" class="form-control padding-below-tf textFields">
+
+    <label>Vehicle Model</label>
+    <input ngModel name="carModel" #carModel="ngModel" type="text" class="form-control padding-below-tf textFields">
+
+    <label>Year of Make</label>
+    <input ngModel name="carYear" #carYear="ngModel" type="text" class="form-control padding-below-tf textFields">
+  </div>
+
+</div>
+
+<div class="button-box">
+  <button (click)="signUserUp(firstName, lastName, email, password, licensePlate, carMake, carModel, carYear)" class="btn btn-primary auth-btn signup">Sign Up</button>
+
+  <label class="existingMember">Already a Member?</label>
+  <button [routerLink]="'/driversignin'" class="btn btn-primary auth-btn">Sign In</button>
+</div>
+
