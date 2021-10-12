@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import {NgModel} from "@angular/forms";
-
 import firebase from 'firebase';
 import {Router} from "@angular/router";
 
