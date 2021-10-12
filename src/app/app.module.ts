@@ -14,6 +14,7 @@ import {FormsModule} from "@angular/forms";
 import { AggieHomeComponent } from './aggie-home/aggie-home.component';
 import firebase from 'firebase';
 import { DriverHomeComponent } from './driver-home/driver-home.component';
+import { VendorAddItemComponent } from './vendor-add-item/vendor-add-item.component';
 const firebaseConfig = {
   apiKey: "AIzaSyBdmCevfTZw4qc_gJ515b8SreEJN3cBEo0",
   authDomain: "campus-drops.firebaseapp.com",
@@ -41,6 +42,7 @@ firebase.analytics();
     VendorHomeComponent,
     AggieHomeComponent,
     DriverHomeComponent,
+    VendorAddItemComponent,
 
   ],
   imports: [

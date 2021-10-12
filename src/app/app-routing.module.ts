@@ -10,6 +10,7 @@ import {ForgotPasswordComponent} from "./forgot-password/forgot-password.compone
 import {VendorHomeComponent} from "./vendor-home/vendor-home.component";
 import {AggieHomeComponent} from "./aggie-home/aggie-home.component";
 import {DriverHomeComponent} from "./driver-home/driver-home.component";
+import {VendorAddItemComponent} from "./vendor-add-item/vendor-add-item.component";
 
 const routes: Routes = [
   { path: '',
@@ -44,6 +45,9 @@ const routes: Routes = [
   },
   { path: 'driverhome',
     component: DriverHomeComponent
+  },
+  { path: 'vendoradditem',
+    component: VendorAddItemComponent
   }
 ];
 

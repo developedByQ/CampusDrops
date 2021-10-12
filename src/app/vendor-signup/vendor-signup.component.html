@@ -10,7 +10,7 @@
   </ul>
 </nav>
 
-<form>
+
   <div class="form-group">
     <div class="form-container">
       <img class="profile-imageview" [src] ="profileImagePath">
@@ -19,22 +19,22 @@
         <input #fileInput type="file" (change)="onFileInput($event)" style="display:none;" />
       </button>
       <label class="first-name-label labels" >Business Name</label>
-      <input ngModel name="businessName" #businessName="ngModel" type="text" class="form-control  textFields">
+      <input [(ngModel)]="businessName" type="text" class="form-control  textFields">
 
       <label>Business Address</label>
-      <input ngModel name="businessAddress" #businessAddress="ngModel" type="text" class="form-control  textFields">
+      <input [(ngModel)]="businessAddress" type="text" class="form-control  textFields">
 
       <label>Business Email</label>
-      <input ngModel name="businessEmail" #email="ngModel" type="text" class="form-control  textFields">
+      <input [(ngModel)]="emails" type="text" class="form-control  textFields">
 
       <label>Password</label>
-      <input ngModel name="password" #password="ngModel" type="text" class="form-control textFields">
-      <button (click)="signVendorUp(businessName,businessAddress, email, password)" class="btn btn-primary auth-btn signup">Sign Up</button>
+      <input [(ngModel)]="passwords" type="text" class="form-control textFields">
+      <button (click)="getUserInfo()" class="btn btn-primary auth-btn signup">Sign Up</button>
 
       <label class="existingMember">Already a Member?</label>
       <button [routerLink]="'/vendorsignin'" class="btn btn-primary auth-btn">Sign In</button>
     </div>
 
   </div>
-</form>
+
 

@@ -25,4 +25,8 @@ export class VendorHomeComponent implements OnInit {
       console.log(error);
     });
   }
+
+  goToAddItem() {
+    this.route.navigate(['/vendoradditem']).then(r =>{});
+  }
 }

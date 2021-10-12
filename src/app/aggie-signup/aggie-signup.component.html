@@ -10,7 +10,7 @@
   </ul>
 </nav>
 
-<form>
+
   <div class="form-group">
     <div class="form-container">
       <img class="profile-imageview" [src] ="profileImagePath">
@@ -20,26 +20,26 @@
       </button>
 
       <label class="first-name-label labels" >First Name</label>
-      <input ngModel name="firstName" #firstName="ngModel" type="text" class="form-control padding-below-tf textFields">
+      <input  [(ngModel)]="firstNames" type="text" class="form-control padding-below-tf textFields">
 
       <label >Last Name</label>
-      <input  ngModel name="lastName" #lastName="ngModel" type="text" class="form-control padding-below-tf textFields">
+      <input  [(ngModel)]="lastNames" type="text" class="form-control padding-below-tf textFields">
 
       <label >University Email</label>
-      <input  ngModel name="email" #email="ngModel" type="text" class="form-control padding-below-tf textFields">
+      <input  [(ngModel)]="emails" type="text" class="form-control padding-below-tf textFields">
 
       <label >Password</label>
-      <input  ngModel name="password" #password="ngModel" type="text" class="form-control padding-below-tf textFields">
+      <input  [(ngModel)]="passwords" type="text" class="form-control padding-below-tf textFields">
 
 
-      <button (click)="getUserInfo(firstName, lastName, email, password)" class="btn btn-primary auth-btn signup">Sign Up</button>
+      <button (click)="getUserInfo()" class="btn btn-primary auth-btn signup">Sign Up</button>
 
       <label class="existingMember">Already a Member?</label>
       <button [routerLink]="'/aggiesignin'" class="btn btn-primary auth-btn">Sign In</button>
     </div>
 
   </div>
-</form>
+
 
 
 
