@@ -118,3 +118,7 @@
   padding: 2px 16px;
 }
 
+.button-space {
+  justify-content: space-between;
+  align-content: space-between;
+}

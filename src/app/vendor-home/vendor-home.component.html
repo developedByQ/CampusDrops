@@ -6,7 +6,7 @@
 </div>
 <hr>
 
-  <div class="item-left ml-4 mt-4">
+  <div class="button-space ml-4 mt-4">
     <button class="btn btn-primary auth-btn signup">View Orders</button>
     <button (click)="goToAddItem()" class="btn btn-primary auth-btn signup">Add New Item</button>
     <button (click)="signUserOut()" class="btn btn-primary auth-btn signup">Sign Out</button>
@@ -14,34 +14,21 @@
 <hr>
 
 <div class="grid-container">
-  <div class="card">
-    <img src="assets/placeholder.png" alt="Avatar" style="width:100%">
+  <div class="card" *ngFor="let item of currentVenderproductList
+">
+    <img [src]="item.itemImage" alt="Avatar" style="width:100%">
     <div class="container">
-      <h4><b>Item Name</b></h4>
-      <p>Architect & Engineer</p>
-    </div>
-  </div>
-  <div class="card">
-    <img src="assets/placeholder.png" alt="Avatar" style="width:100%">
-    <div class="container">
-      <h4><b>Item Name</b></h4>
-      <p>Architect & Engineer</p>
+      <h4><b>{{item.itemName}}</b></h4>
+      <p>{{item.description}}</p>
     </div>
   </div>
 
-  <div class="card">
-    <img src="assets/placeholder.png" alt="Avatar" style="width:100%">
-    <div class="container">
-      <h4><b>Item Name</b></h4>
-      <p>Architect & Engineer</p>
-    </div>
-  </div>
-  <div class="grid-item">4</div>
-  <div class="grid-item">5</div>
-  <div class="grid-item">6</div>
-  <div class="grid-item">7</div>
-  <div class="grid-item">8</div>
-  <div class="grid-item">9</div>
+<!--  <div class="grid-item">4</div>-->
+<!--  <div class="grid-item">5</div>-->
+<!--  <div class="grid-item">6</div>-->
+<!--  <div class="grid-item">7</div>-->
+<!--  <div class="grid-item">8</div>-->
+<!--  <div class="grid-item">9</div>-->
 </div>
 
 
