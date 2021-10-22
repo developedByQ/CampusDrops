@@ -3,14 +3,13 @@ import { RouterModule, Routes } from '@angular/router';
 import {AggieSignupComponent} from "./aggie-signup/aggie-signup.component";
 import {DriverSignupComponent} from "./driver-signup/driver-signup.component";
 import {VendorSignupComponent} from "./vendor-signup/vendor-signup.component";
-import {AggieSigninComponent} from "./aggie-signin/aggie-signin.component";
-import {DriverSigninComponent} from "./driver-signin/driver-signin.component";
 import {VendorSigninComponent} from "./vendor-signin/vendor-signin.component";
 import {ForgotPasswordComponent} from "./forgot-password/forgot-password.component";
 import {VendorHomeComponent} from "./vendor-home/vendor-home.component";
 import {AggieHomeComponent} from "./aggie-home/aggie-home.component";
 import {DriverHomeComponent} from "./driver-home/driver-home.component";
 import {VendorAddItemComponent} from "./vendor-add-item/vendor-add-item.component";
+import {AggieViewDetailsComponent} from "./aggie-view-details/aggie-view-details.component";
 
 const routes: Routes = [
   { path: '',
@@ -24,12 +23,6 @@ const routes: Routes = [
   },
   { path: 'vendorsignup',
     component: VendorSignupComponent
-  },
-  { path: 'aggiesignin',
-    component: AggieSigninComponent
-  },
-  { path: 'driversignin',
-    component: DriverSigninComponent
   },
   { path: 'vendorsignin',
     component: VendorSigninComponent
@@ -48,6 +41,9 @@ const routes: Routes = [
   },
   { path: 'vendoradditem',
     component: VendorAddItemComponent
+  },
+  { path: 'aggieviewdetail',
+    component: AggieViewDetailsComponent
   }
 ];
 

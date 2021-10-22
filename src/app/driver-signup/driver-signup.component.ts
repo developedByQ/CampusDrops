@@ -69,9 +69,10 @@ export class DriverSignupComponent implements OnInit {
           license_plate: licensePlate.value,
           car_make: carMake.value,
           car_model: carModel.value,
-          car_year: carYear.value
+          car_year: carYear.value,
+          role: 2
         }
-        ref.child('drivers').child(userID).update(user).then(()=>{
+        ref.child('users').child(userID).update(user).then(()=>{
           this.route.navigate(['/driverhome']).then(r =>{});
         })
 

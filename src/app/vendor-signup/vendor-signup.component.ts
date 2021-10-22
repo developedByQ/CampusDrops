@@ -95,7 +95,7 @@ export class VendorSignupComponent implements OnInit {
 
         }
 
-        ref.child('vendors').child(userID).update(user).then(()=>{
+        ref.child('users').child(userID).update(user).then(()=>{
           this.route.navigate(['/vendorhome']).then(r =>{});
         })
 

@@ -14,14 +14,16 @@ export class MainService {
     this.getAllItem();
   }
   getAllItem(){
-    firebase.database().ref().child('allItems').once('value',(SnapShoot)=>{
-      var data=SnapShoot.val();
+    firebase.database().ref().child("allItems").once('value',(SnapShot)=>{
+      var data=SnapShot.val();
       for(var item in data){
         this.ItemList.push(data[item]);
         this.dataRec.next("data");
         console.log(this.ItemList);
       }
+
     });
 
   }
+
 }

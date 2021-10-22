@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DriverSigninComponent } from './driver-signin.component';
+import { AggieViewDetailsComponent } from './aggie-view-details.component';
 
-describe('DriverSigninComponent', () => {
-  let component: DriverSigninComponent;
-  let fixture: ComponentFixture<DriverSigninComponent>;
+describe('AggieViewDetailsComponent', () => {
+  let component: AggieViewDetailsComponent;
+  let fixture: ComponentFixture<AggieViewDetailsComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ DriverSigninComponent ]
+      declarations: [ AggieViewDetailsComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(DriverSigninComponent);
+    fixture = TestBed.createComponent(AggieViewDetailsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

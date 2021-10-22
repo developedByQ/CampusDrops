@@ -13,22 +13,30 @@
   </div>
 <hr>
 
-<div class="grid-container">
-  <div class="card" *ngFor="let item of currentVenderproductList
-">
-    <img [src]="item.itemImage" alt="Avatar" style="width:100%">
-    <div class="container">
-      <h4><b>{{item.itemName}}</b></h4>
-      <p>{{item.description}}</p>
-    </div>
-  </div>
+<!--<div class="grid-container">-->
+<!--  <div class="card" *ngFor="let item of currentVenderproductList-->
+<!--">-->
+<!--    <img [src]="item.itemImage" alt="Avatar" style="width:100%">-->
+<!--    <div class="container">-->
+<!--      <h4><b>{{item.itemName}}</b></h4>-->
+<!--      <p>{{item.description}}</p>-->
+<!--    </div>-->
+<!--  </div>-->
 
-<!--  <div class="grid-item">4</div>-->
-<!--  <div class="grid-item">5</div>-->
-<!--  <div class="grid-item">6</div>-->
-<!--  <div class="grid-item">7</div>-->
-<!--  <div class="grid-item">8</div>-->
-<!--  <div class="grid-item">9</div>-->
+<!--</div>-->
+<div style="max-width: 400px; margin: auto; padding: 1em;" *ngFor="let item of currentVenderproductList">
+  <mat-card>
+    <mat-card-header>
+    <mat-card-title>{{item.itemName}}</mat-card-title>
+      <mat-card-subtitle>{{item.price}}</mat-card-subtitle>
+    </mat-card-header>
+    <img [src]="item.itemImage" alt="Avatar" style="width:100%"
+    mat-card-image
+    >
+    <mat-card-content>
+      <p>{{item.description}}</p>
+    </mat-card-content>
+  </mat-card>
 </div>
 
 
