@@ -8,22 +8,22 @@ import { VendorSignupComponent } from './vendor-signup/vendor-signup.component';
 import { VendorSigninComponent } from './vendor-signin/vendor-signin.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { VendorHomeComponent } from './vendor-home/vendor-home.component';
-import {FormsModule} from "@angular/forms";
+import { FormsModule } from '@angular/forms';
 import { AggieHomeComponent } from './aggie-home/aggie-home.component';
 import firebase from 'firebase';
 import { DriverHomeComponent } from './driver-home/driver-home.component';
-import { VendorAddItemComponent } from './vendor-add-item/vendor-add-item.component';
-import {MatCardModule} from "@angular/material/card";
+import { MatCardModule } from '@angular/material/card';
 import { AggieViewDetailsComponent } from './aggie-view-details/aggie-view-details.component';
+import { CheckOutComponent } from './check-out/check-out.component';
 const firebaseConfig = {
-  apiKey: "AIzaSyBdmCevfTZw4qc_gJ515b8SreEJN3cBEo0",
-  authDomain: "campus-drops.firebaseapp.com",
-  databaseURL: "https://campus-drops-default-rtdb.firebaseio.com",
-  projectId: "campus-drops",
-  storageBucket: "campus-drops.appspot.com",
-  messagingSenderId: "770069460430",
-  appId: "1:770069460430:web:c866aa725c8db5c25e279f",
-  measurementId: "G-GB31F3LFHX"
+  apiKey: 'AIzaSyBdmCevfTZw4qc_gJ515b8SreEJN3cBEo0',
+  authDomain: 'campus-drops.firebaseapp.com',
+  databaseURL: 'https://campus-drops-default-rtdb.firebaseio.com',
+  projectId: 'campus-drops',
+  storageBucket: 'campus-drops.appspot.com',
+  messagingSenderId: '770069460430',
+  appId: '1:770069460430:web:c866aa725c8db5c25e279f',
+  measurementId: 'G-GB31F3LFHX',
 };
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
@@ -40,18 +40,11 @@ firebase.analytics();
     VendorHomeComponent,
     AggieHomeComponent,
     DriverHomeComponent,
-    VendorAddItemComponent,
     AggieViewDetailsComponent,
-
+    CheckOutComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    FormsModule,
-    MatCardModule,
-
-  ],
+  imports: [BrowserModule, AppRoutingModule, FormsModule, MatCardModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

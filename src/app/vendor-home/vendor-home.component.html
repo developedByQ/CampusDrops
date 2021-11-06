@@ -1,16 +1,16 @@
 <div class="top-label-container p-4">
-  <h4 class="order-label ml-4">Total Orders: 0</h4>
-  <h4 class="order-label">In Progress: 0</h4>
-  <h4 class="order-label">En Route: 0</h4>
-  <h4 class="order-label mr-4">Completed: 0</h4>
+    <h4 class="order-label ml-4">Total Orders: 0</h4>
+    <h4 class="order-label">In Progress: 0</h4>
+    <h4 class="order-label">En Route: 0</h4>
+    <h4 class="order-label mr-4">Completed: 0</h4>
 </div>
 <hr>
 
-  <div class="button-space ml-4 mt-4">
+<div class="button-space ml-4 mt-4">
     <button class="btn btn-primary auth-btn signup">View Orders</button>
     <button (click)="goToAddItem()" class="btn btn-primary auth-btn signup">Add New Item</button>
     <button (click)="signUserOut()" class="btn btn-primary auth-btn signup">Sign Out</button>
-  </div>
+</div>
 <hr>
 
 <!--<div class="grid-container">-->
@@ -25,19 +25,36 @@
 
 <!--</div>-->
 <div style="max-width: 400px; margin: auto; padding: 1em;" *ngFor="let item of currentVenderproductList">
-  <mat-card>
-    <mat-card-header>
-    <mat-card-title>{{item.itemName}}</mat-card-title>
-      <mat-card-subtitle>{{item.price}}</mat-card-subtitle>
-    </mat-card-header>
-    <img [src]="item.itemImage" alt="Avatar" style="width:100%"
-    mat-card-image
-    >
-    <mat-card-content>
-      <p>{{item.description}}</p>
-    </mat-card-content>
-  </mat-card>
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title>{{item.itemName}}</mat-card-title>
+            <mat-card-subtitle>{{item.price}}</mat-card-subtitle>
+        </mat-card-header>
+        <img [src]="item.itemImage" alt="Avatar" style="width:100%" mat-card-image>
+        <mat-card-content>
+            <p>{{item.description}}</p>
+        </mat-card-content>
+    </mat-card>
 </div>
-
-
-
+<table class="table table-active">
+    <tr>
+        <th>CustomerName</th>
+        <th>CustomerAddress</th>
+        <th>CustomerContact</th>
+        <th>price</th>
+        <th>paymentStatus</th>
+        <th>itemName</th>
+        <th>Image</th>
+        <th>Action</th>
+    </tr>
+    <tr *ngFor="let item of service.orderlist">
+        <td>{{item.name}}</td>
+        <td>{{item.address}}</td>
+        <td>{{item.contact}}</td>
+        <td>{{item.price}}</td>
+        <td>{{item.payment}}</td>
+        <td>{{item.itemName}}</td>
+        <td>image</td>
+        <td>{{item.status}}</td>
+    </tr>
+</table>

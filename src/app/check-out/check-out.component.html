@@ -1,0 +1,72 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="row" *ngFor="let itemDetail of service.checkoutList">
+                <div class="col-sm-12">
+                    <img width="200px" class="image-imageview" [src]="itemDetail.itemImage ||'assets/placeholder.png'">
+                    <br>
+                    <p style="font-weight: bold;">${{itemDetail.price}}</p><br>
+                    <p style="font-weight: bold;">{{itemDetail.itemName}}</p><br>
+                    <p style="font-weight: bold;">{{itemDetail.description}}</p>
+                </div>
+
+            </div>
+
+        </div>
+        <div class="col-md-5">
+            <form>
+                <div class="form-group">
+                    <label for="name">ReciverName</label><br>
+                    <input type="text" [(ngModel)]="name" name="name" placeholder="Enter Reciver name">
+                </div>
+                <div class="form-group">
+                    <label for="name">ReciverAddress</label><br>
+                    <input type="text" [(ngModel)]="address" name="address" placeholder="Enter Reciver address">
+                </div>
+                <div class="form-group">
+                    <label for="name">Contact</label><br>
+                    <input type="text" [(ngModel)]="contact" name="contact" placeholder="Enter contact">
+                </div>
+                <div class="form-group">
+                    <label for="name">Payment Method</label><br>
+                    <div class="form-check">
+                        <input class="form-check-input" [(ngModel)]="payment" name="payment" type="radio" value="CashDelevery" id="flexCheckDefault">
+                        <label class="form-check-label" for="flexCheckDefault">
+              Cash On delivery
+            </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" [(ngModel)]="payment" name="payment" type="radio" value="onlinepayment" id="flexCheckChecked">
+                        <label class="form-check-label" for="flexCheckChecked">
+              Online Payment
+            </label>
+                    </div>
+                </div>
+                <br>
+                <p *ngIf="onlinePayment==true" class="text-success">Transaction Successfully</p>
+                <div *ngIf="onlinePayment==false">
+                    <div *ngIf="payment=='onlinepayment'">
+                        <div class="form-group">
+                            <label for="name">Card Number</label><br>
+                            <input type="text" placeholder="Enter card number">
+                        </div>
+                        <div class="form-group">
+                            <label for="name">Card Expiry</label><br>
+                            <input type="text" placeholder="Enter card expiry">
+                        </div>
+                        <div class="form-group">
+                            <label for="name">Card SecretKey</label><br>
+                            <input type="text" placeholder="Enter card secret key">
+                        </div>
+                        <button class="btn btn-success" (click)="Transaction()">{{service.checkoutList[0].price}}</button>
+                    </div>
+                </div>
+
+
+
+                <button (click)="PlaceOrder()" class="btn btn-primary">Place order</button>
+            </form>
+        </div>
+    </div>
+
+</div>

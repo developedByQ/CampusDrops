@@ -1,5 +1,7 @@
 <div class="left-container">
-<img class="image-imageview" src="assets/placeholder.png">
-<h1>$00.00</h1>
-<h2>Item Title</h2>
+    <img class="image-imageview" [src]="itemDetail.itemImage ||'assets/placeholder.png'">
+    <h1>${{itemDetail.price}}</h1>
+    <h2>{{itemDetail.itemName}}</h2>
+    <h4>{{itemDetail.description}}</h4>
+    <button (click)="checkout(itemDetail.itemID)" class="btn btn-primary">CheckOut</button>
 </div>
