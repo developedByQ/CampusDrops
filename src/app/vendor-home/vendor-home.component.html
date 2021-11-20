@@ -7,50 +7,26 @@
 <hr>
 
 <div class="button-space ml-4 mt-4">
-    <button class="btn btn-primary auth-btn signup">View Orders</button>
+    <button (click)="goToViewAllItems()" class="btn btn-primary auth-btn signup">View My Items</button>
     <button (click)="goToAddItem()" class="btn btn-primary auth-btn signup">Add New Item</button>
     <button (click)="signUserOut()" class="btn btn-primary auth-btn signup">Sign Out</button>
 </div>
 <hr>
-
-<!--<div class="grid-container">-->
-<!--  <div class="card" *ngFor="let item of currentVenderproductList-->
-<!--">-->
-<!--    <img [src]="item.itemImage" alt="Avatar" style="width:100%">-->
-<!--    <div class="container">-->
-<!--      <h4><b>{{item.itemName}}</b></h4>-->
-<!--      <p>{{item.description}}</p>-->
-<!--    </div>-->
-<!--  </div>-->
-
-<!--</div>-->
-<div style="max-width: 400px; margin: auto; padding: 1em;" *ngFor="let item of currentVenderproductList">
-    <mat-card>
-        <mat-card-header>
-            <mat-card-title>{{item.itemName}}</mat-card-title>
-            <mat-card-subtitle>{{item.price}}</mat-card-subtitle>
-        </mat-card-header>
-        <img [src]="item.itemImage" alt="Avatar" style="width:100%" mat-card-image>
-        <mat-card-content>
-            <p>{{item.description}}</p>
-        </mat-card-content>
-    </mat-card>
-</div>
 <table class="table table-active">
     <tr>
-        <th>CustomerName</th>
-        <th>CustomerAddress</th>
-        <th>CustomerContact</th>
-        <th>price</th>
-        <th>paymentStatus</th>
-        <th>itemName</th>
+        <th>Name</th>
+        <th>Phone</th>
+        <th>Address</th>
+        <th>Price</th>
+        <th>Payment Method</th>
+        <th>Item</th>
         <th>Image</th>
-        <th>Action</th>
+        <th>Status</th>
     </tr>
     <tr *ngFor="let item of service.orderlist">
         <td>{{item.name}}</td>
-        <td>{{item.address}}</td>
         <td>{{item.contact}}</td>
+        <td>{{item.address}}</td>
         <td>{{item.price}}</td>
         <td>{{item.payment}}</td>
         <td>{{item.itemName}}</td>

@@ -10,26 +10,13 @@ import { MainService } from '../main.service';
 })
 export class VendorHomeComponent implements OnInit {
   private route: Router;
-  public currentVendor: string | undefined = '';
-  public currentVenderproductList: any = [];
+
   constructor(route: Router, public service: MainService) {
     this.route = route;
   }
 
   ngOnInit(): void {
-    //this.currentVendor="9sQTCoRI9zcIjboAvTVZO5NDdRs2";
-    // @ts-ignore
-    this.currentVendor = firebase.auth().currentUser.uid;
-    console.log(this.currentVendor);
-    this.service.dataRec.subscribe(() => {
-      for (var item in this.service.ItemList) {
-        if (this.service.ItemList[item].vendor == this.currentVendor) {
-          this.currentVenderproductList.push(this.service.ItemList[item]);
-        } else {
-          console.log(this.service.ItemList[item].vendor);
-        }
-      }
-    });
+
   }
 
   signUserOut() {
@@ -48,5 +35,9 @@ export class VendorHomeComponent implements OnInit {
 
   goToAddItem() {
     this.route.navigate(['/vendoradditem']).then((r) => {});
+  }
+
+  goToViewAllItems() {
+    this.route.navigate(['/viewitems']).then((r) => {});
   }
 }

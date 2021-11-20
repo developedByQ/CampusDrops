@@ -1,0 +1,10 @@
+<div style="max-width: 400px; margin: auto; padding: 1em;" *ngFor="let item of currentVenderproductList">
+  <mat-card>
+    <img [src]="item.itemImage" alt="Avatar" style="width:100%" mat-card-image>
+    <mat-card-content>
+      <p>{{item.itemName}}</p>
+      <p>{{item.price}}</p>
+      <p>{{item.description}}</p>
+    </mat-card-content>
+  </mat-card>
+</div>

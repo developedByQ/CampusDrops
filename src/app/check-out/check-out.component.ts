@@ -38,7 +38,7 @@ export class CheckOutComponent implements OnInit {
         price: this.service.checkoutList[index].price,
         itemName: this.service.checkoutList[index].itemName,
         description: this.service.checkoutList[index].description,
-        status: 'pending',
+        status: 'Pending',
       };
       databaseRef
         .child('order')

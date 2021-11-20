@@ -15,6 +15,7 @@ import { DriverHomeComponent } from './driver-home/driver-home.component';
 import { MatCardModule } from '@angular/material/card';
 import { AggieViewDetailsComponent } from './aggie-view-details/aggie-view-details.component';
 import { CheckOutComponent } from './check-out/check-out.component';
+import { DriverViewallComponent } from './vendor-viewall/driver-viewall.component';
 const firebaseConfig = {
   apiKey: 'AIzaSyBdmCevfTZw4qc_gJ515b8SreEJN3cBEo0',
   authDomain: 'campus-drops.firebaseapp.com',
@@ -42,6 +43,7 @@ firebase.analytics();
     DriverHomeComponent,
     AggieViewDetailsComponent,
     CheckOutComponent,
+    DriverViewallComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, MatCardModule],
   providers: [],

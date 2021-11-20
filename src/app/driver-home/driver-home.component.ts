@@ -32,7 +32,7 @@ export class DriverHomeComponent implements OnInit {
   }
   Accept(key: any) {
     var obj = {
-      status: 'delevered',
+      status: 'Assigned',
     };
     firebase
       .database()
@@ -41,7 +41,7 @@ export class DriverHomeComponent implements OnInit {
       .child(key)
       .update(obj)
       .then(() => {
-        alert('order delevered successfully');
+        alert('Order Assigned Successfully');
       })
       .catch((error) => {});
   }

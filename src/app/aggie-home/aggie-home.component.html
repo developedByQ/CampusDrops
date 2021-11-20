@@ -1,9 +1,9 @@
 <div class="sidebar">
     <h4>Categories</h4>
-    <a class="active" href="#home">Campus Needs</a>
-    <a href="#news">Food</a>
-    <a href="#contact">Accessories</a>
-    <a href="#about">About</a>
+    <a class="active" href="/">Campus Needs</a>
+    <a href="/">Food</a>
+    <a href="/">Accessories</a>
+    <a href="/">About</a>
     <button (click)="signUserOut()" class="btn btn-primary">Sign Out</button>
 </div>
 
@@ -11,10 +11,6 @@
 <div class="content">
     <div style="max-width: 400px; margin: auto; padding: 1em;" *ngFor="let item of currentVenderproductList">
         <mat-card>
-            <!--      <mat-card-header>-->
-            <!--        <mat-card-title>{{item.itemName}}</mat-card-title>-->
-            <!--        <mat-card-subtitle>{{item.price}}</mat-card-subtitle>-->
-            <!--      </mat-card-header>-->
             <img [src]="item.itemImage" alt="Avatar" style="width:100%" mat-card-image>
             <mat-card-content>
                 <p>{{item.itemName}}</p>
