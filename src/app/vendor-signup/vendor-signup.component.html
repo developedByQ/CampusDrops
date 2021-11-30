@@ -2,7 +2,7 @@
   <h4 class="navbar-brand">Sign Up</h4>
   <ul class="navbar-nav">
     <li class="nav-item">
-      <a [routerLink]="'/vendorsignup'" class="nav-link">Vendor Sign Up</a>
+      <a [routerLink]="'/'" class="nav-link">Aggie Sign Up</a>
     </li>
     <li class="nav-item">
       <a [routerLink]="'/driversignup'" class="nav-link driver-signup-link"
@@ -12,98 +12,52 @@
   </ul>
 </nav>
 
-<section class="login-clean">
-  <form id="login-form" method="post">
-    <h1 style="text-align: center; font-style: italic; font-size: 24px">
-      Become A Business Partner
-    </h1>
-    <h1
-      style="
-        text-align: center;
-        margin-bottom: 20px;
-        color: #fdb827;
-        font-family: 'Coda Caption', sans-serif;
-        font-weight: bold;
-        font-size: 52px;
-      "
+<div class="form-group">
+  <div class="form-container">
+    <img class="profile-imageview" [src]="profileImagePath" />
+    <button
+      type="button"
+      class="btn btn-primary auth-btn"
+      (click)="fileInput.click()"
     >
-      Sign Up
-    </h1>
+      <span>Select an Image</span>
+      <input
+        #fileInput
+        type="file"
+        (change)="onFileInput($event)"
+        style="display: none"
+      />
+    </button>
+    <label class="first-name-label labels">Business Name</label>
+    <input
+      [(ngModel)]="businessName"
+      type="text"
+      class="form-control textFields"
+    />
 
-    <div class="row row-for-image">
-      <div class="col text-center col-image">
-        <img class="profile-imageview" [src]="profileImagePath" />
-      </div>
-      <div class="d-flex justify-content-center col">
-        <button
-          type="button"
-          class="btn btn-primary auth-btn"
-          (click)="fileInput.click()"
-        >
-          <span>Select an Image</span>
-          <input
-            #fileInput
-            type="file"
-            (change)="onFileInput($event)"
-            style="display: none"
-          />
-        </button>
-      </div>
-    </div>
-    <div class="mb-3">
-      <input
-        class="form-control"
-        type="email"
-        [(ngModel)]="businessName"
-        placeholder="Business Name"
-        style="border-radius: 16px"
-      />
-    </div>
-    <div class="mb-3">
-      <input
-        class="form-control"
-        type="text"
-        [(ngModel)]="businessAddress"
-        placeholder="Business Address"
-        style="border-radius: 16px"
-      />
-    </div>
-    <div class="mb-3">
-      <input
-        class="form-control"
-        type="text"
-        placeholder="Business Email"
-        [(ngModel)]="emails"
-        style="border-radius: 16px"
-      />
-    </div>
-    <div class="mb-3"></div>
-    <div class="mb-3">
-      <input
-        class="form-control"
-        type="password"
-        [(ngModel)]="passwords"
-        placeholder="Password"
-        style="border-radius: 16px"
-      />
-    </div>
-    <div class="mb-3"></div>
-    <div class="mb-3">
-      <button
-        class="btn btn-primary d-block w-100 auth-btn"
-        type="submit"
-        style="background: #002d74; border-radius: 9px"
-        (click)="getUserInfo()"
-      >
-        Sign Up
-      </button>
-    </div>
-    <div class="mb-3">
-      <a class="forgot" href="/vendorsignin">Already a Customer? Sign in</a>
-    </div>
-    <span class="forgot" href="#"
-      >By clicking Sign up,you agree to our&nbsp;Terms and
-      Conditions&nbsp;and&nbsp;Privacy Statement.</span
-    >
-  </form>
-</section>
+    <label>Business Address</label>
+    <input
+      [(ngModel)]="businessAddress"
+      type="text"
+      class="form-control textFields"
+    />
+
+    <label>Business Email</label>
+    <input [(ngModel)]="emails" type="text" class="form-control textFields" />
+
+    <label>Password</label>
+    <input
+      [(ngModel)]="passwords"
+      type="text"
+      class="form-control textFields"
+    />
+    <button (click)="getUserInfo()" class="btn btn-primary auth-btn signup">
+      Sign Up
+    </button>
+
+    <label class="existingMember">Already a Member?</label>
+    <button [routerLink]="'/vendorsignin'" class="btn btn-primary auth-btn">
+      Sign In
+    </button>
+  </div>
+</div>
