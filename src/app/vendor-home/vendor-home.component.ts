@@ -19,19 +19,6 @@ export class VendorHomeComponent implements OnInit {
 
   }
 
-  signUserOut() {
-    firebase
-      .auth()
-      .signOut()
-      .then(() => {
-        console.log('logged out');
-        this.route.navigate(['/vendorsignin']).then((r) => {});
-      })
-      .catch((error) => {
-        // An error happened.
-        console.log(error);
-      });
-  }
 
   goToAddItem() {
     this.route.navigate(['/vendoradditem']).then((r) => {});
@@ -39,5 +26,9 @@ export class VendorHomeComponent implements OnInit {
 
   goToViewAllItems() {
     this.route.navigate(['/viewitems']).then((r) => {});
+  }
+
+  goToSettings() {
+    this.route.navigate(['/settings']).then((r) => {});
   }
 }

@@ -1,31 +1,27 @@
 import { Component, OnInit } from '@angular/core';
-import firebase from 'firebase';
+import firebase from "firebase";
 import {Router} from "@angular/router";
 
-@Component({
-  selector: 'aggie-signup',
-  templateUrl: './aggie-signup.component.html',
-  styleUrls: ['./aggie-signup.component.css']
-})
-export class AggieSignupComponent implements OnInit {
 
-  profileImagePath: string;
+@Component({
+  selector: 'app-settings',
+  templateUrl: './settings.component.html',
+  styleUrls: ['./settings.component.css']
+})
+export class SettingsComponent implements OnInit {
+
   private route: Router;
+  profileImagePath: string;
+  name: any;
   myFileName: any = "";
   selectedFile: any;
-  name: any;
-  emails: any;
- passwords: any;
-  constructor(route: Router)
-  {
-    this.route = route;
+
+  constructor(route: Router) {
     this.profileImagePath = 'assets/placeholder.png';
-
-
+    this.route = route;
   }
 
   ngOnInit(): void {
-    this.checkIfLoggedIn();
   }
 
   onFileInput($event: Event) {
@@ -52,14 +48,6 @@ export class AggieSignupComponent implements OnInit {
     }
   }
 
-  checkIfLoggedIn() {
-    const user = firebase.auth().currentUser;
-    if (user) {
-      this.route.navigate(['/aggiehome']).then(r =>{});
-    } else {
-      console.log("checkIfLoggedIn: Not Signed In")
-    }
-  }
 
   getUserInfo() {
     let task = firebase.storage().ref("profileImages/" + this.myFileName);
@@ -75,30 +63,29 @@ export class AggieSignupComponent implements OnInit {
 
   updateProfile(url: any) {
     // @ts-ignore
+    let myUID = firebase.auth().currentUser?.uid
+    firebase.database().ref('users/' + myUID).update({
+      name: this.name,
+      profile_image : url
+    });
+    this.route.navigate(['/aggiehome']).then(r =>{});
 
-    firebase.auth().createUserWithEmailAndPassword(this.emails, this.passwords)
-      .then((userCredential) => {
+  }
 
-        var ref = firebase.database().ref();
-        var userID: any = userCredential.user?.uid
-        var user = {
-          userID: userID,
-          email: userCredential.user?.email,
-          name: this.name,
-          profile_image: url,
-          role: 0
 
-        }
 
-        ref.child('users').child(userID).update(user).then(()=>{
-          this.route.navigate(['/aggiehome']).then(r =>{});
-        })
 
+  signUserOut() {
+    firebase
+      .auth()
+      .signOut()
+      .then(() => {
+        console.log('logged out');
+        this.route.navigate(['/vendorsignin']).then((r) => {});
       })
       .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        alert(error.message);
+        // An error happened.
+        console.log(error);
       });
   }
 

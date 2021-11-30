@@ -64,8 +64,7 @@ export class DriverSignupComponent implements OnInit {
         var user = {
           userID: userID,
           email: userCredential.user?.email,
-          first_name: firstName.value,
-          last_name: lastName.value,
+          name: firstName.value + "" + lastName.value,
           license_plate: licensePlate.value,
           car_make: carMake.value,
           car_model: carModel.value,

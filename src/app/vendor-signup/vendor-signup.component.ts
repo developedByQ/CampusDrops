@@ -88,7 +88,7 @@ export class VendorSignupComponent implements OnInit {
         var user = {
           userID: userID,
           email: userCredential.user?.email,
-          business_name: this.businessName,
+          name: this.businessName,
           business_address: this.businessAddress,
           profile_image: url,
           role: 1

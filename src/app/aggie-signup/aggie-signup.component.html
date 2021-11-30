@@ -5,65 +5,41 @@
       <a [routerLink]="'/vendorsignup'" class="nav-link">Vendor Sign Up</a>
     </li>
     <li class="nav-item">
-      <a [routerLink]="'/driversignup'" class="nav-link driver-signup-link"
-        >Driver Sign Up</a
-      >
+      <a [routerLink]="'/driversignup'" class="nav-link driver-signup-link">Driver Sign Up</a>
     </li>
   </ul>
 </nav>
 
-<div class="form-group">
-  <div class="form-container">
-    <img class="profile-imageview" [src]="profileImagePath" />
-    <button
-      type="button"
-      class="btn btn-primary auth-btn"
-      (click)="fileInput.click()"
-    >
+
+  <div class="form-group">
+    <div class="form-container">
+      <img class="profile-imageview" [src] ="profileImagePath">
+      <button type="button" class="btn btn-primary auth-btn" (click)="fileInput.click()">
       <span>Select an Image</span>
-      <input
-        #fileInput
-        type="file"
-        (change)="onFileInput($event)"
-        style="display: none"
-      />
-    </button>
+        <input #fileInput type="file" (change)="onFileInput($event)" style="display:none;" />
+      </button>
 
-    <label class="first-name-label labels">First Name</label>
-    <input
-      [(ngModel)]="firstNames"
-      type="text"
-      class="form-control padding-below-tf textFields"
-    />
+      <label class="first-name-label labels" >Name</label>
+      <input  [(ngModel)]="name" type="text" class="form-control padding-below-tf textFields">
 
-    <label>Last Name</label>
-    <input
-      [(ngModel)]="lastNames"
-      type="text"
-      class="form-control padding-below-tf textFields"
-    />
+      <label >University Email</label>
+      <input  [(ngModel)]="emails" type="text" class="form-control padding-below-tf textFields">
 
-    <label>University Email</label>
-    <input
-      [(ngModel)]="emails"
-      type="text"
-      class="form-control padding-below-tf textFields"
-    />
+      <label >Password</label>
+      <input  [(ngModel)]="passwords" type="text" class="form-control padding-below-tf textFields">
 
-    <label>Password</label>
-    <input
-      [(ngModel)]="passwords"
-      type="text"
-      class="form-control padding-below-tf textFields"
-    />
 
-    <button (click)="getUserInfo()" class="btn btn-primary auth-btn signup">
-      Sign Up
-    </button>
+      <button (click)="getUserInfo()" class="btn btn-primary auth-btn signup">Sign Up</button>
 
-    <label class="existingMember">Already a Member?</label>
-    <button [routerLink]="'/vendorsignin'" class="btn btn-primary auth-btn">
-      Sign In
-    </button>
+      <label class="existingMember">Already a Member?</label>
+      <button [routerLink]="'/vendorsignin'" class="btn btn-primary auth-btn">Sign In</button>
+    </div>
+
   </div>
-</div>
+
+
+
+
+
+
+

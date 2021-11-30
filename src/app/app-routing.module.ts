@@ -11,6 +11,8 @@ import { DriverHomeComponent } from './driver-home/driver-home.component';
 import { AggieViewDetailsComponent } from './aggie-view-details/aggie-view-details.component';
 import { CheckOutComponent } from './check-out/check-out.component';
 import {DriverViewallComponent} from "./vendor-viewall/driver-viewall.component";
+import {VendorAddItemComponent} from "./vendor-add-item/vendor-add-item.component";
+import {SettingsComponent} from "./settings/settings.component";
 
 const routes: Routes = [
   { path: '', component: AggieSignupComponent },
@@ -25,6 +27,8 @@ const routes: Routes = [
   { path: 'aggieviewdetail', component: AggieViewDetailsComponent },
   { path: 'checkout', component: CheckOutComponent },
   { path: 'viewitems', component: DriverViewallComponent },
+  { path: 'vendoradditem', component: VendorAddItemComponent },
+  { path: 'settings', component: SettingsComponent },
 ];
 
 @NgModule({

@@ -45,4 +45,8 @@ export class DriverHomeComponent implements OnInit {
       })
       .catch((error) => {});
   }
+
+  goToSettings() {
+    this.route.navigate(['/settings']).then((r) => {});
+  }
 }

@@ -25,20 +25,6 @@ export class AggieHomeComponent implements OnInit {
     });
   }
 
-  signUserOut() {
-    firebase
-      .auth()
-      .signOut()
-      .then(() => {
-        console.log('logged out');
-        this.route.navigate(['/vendorsignin']).then((r) => {});
-      })
-      .catch((error) => {
-        // An error happened.
-        console.log(error);
-      });
-  }
-
   viewItemDetail() {
     this.route.navigate(['/aggieviewdetail']).then((r) => {});
   }
