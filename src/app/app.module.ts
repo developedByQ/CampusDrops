@@ -17,7 +17,7 @@ import { AggieViewDetailsComponent } from './aggie-view-details/aggie-view-detai
 import { CheckOutComponent } from './check-out/check-out.component';
 import { DriverViewallComponent } from './vendor-viewall/driver-viewall.component';
 import { SettingsComponent } from './settings/settings.component';
-import {VendorAddItemComponent} from "./vendor-add-item/vendor-add-item.component";
+
 const firebaseConfig = {
   apiKey: 'AIzaSyBdmCevfTZw4qc_gJ515b8SreEJN3cBEo0',
   authDomain: 'campus-drops.firebaseapp.com',
@@ -47,7 +47,7 @@ firebase.analytics();
     CheckOutComponent,
     DriverViewallComponent,
     SettingsComponent,
-    VendorAddItemComponent
+
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, MatCardModule],
   providers: [],
