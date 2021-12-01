@@ -20,9 +20,9 @@ export class VendorHomeComponent implements OnInit {
   }
 
 
-  // goToAddItem() {
-  //   this.route.navigate(['/vendoradditem']).then((r) => {});
-  // }
+  goToAddItem() {
+    this.route.navigate(['/vendoradditem']).then((r) => {});
+  }
 
   goToViewAllItems() {
     this.route.navigate(['/viewitems']).then((r) => {});

@@ -76,6 +76,7 @@ export class AggieSignupComponent implements OnInit {
   updateProfile(url: any) {
     // @ts-ignore
 
+
     firebase.auth().createUserWithEmailAndPassword(this.emails, this.passwords)
       .then((userCredential) => {
 
