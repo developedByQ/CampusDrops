@@ -18,6 +18,7 @@ import { CheckOutComponent } from './check-out/check-out.component';
 import { DriverViewallComponent } from './vendor-viewall/driver-viewall.component';
 import { SettingsComponent } from './settings/settings.component';
 import { VendorAddItemComponent } from './vendor-add-item/vendor-add-item.component';
+import {MatGridListModule} from "@angular/material/grid-list";
 
 const firebaseConfig = {
   apiKey: 'AIzaSyBdmCevfTZw4qc_gJ515b8SreEJN3cBEo0',
@@ -51,7 +52,7 @@ firebase.analytics();
     VendorAddItemComponent,
 
   ],
-  imports: [BrowserModule, AppRoutingModule, FormsModule, MatCardModule],
+    imports: [BrowserModule, AppRoutingModule, FormsModule, MatCardModule, MatGridListModule],
   providers: [],
   bootstrap: [AppComponent],
 })

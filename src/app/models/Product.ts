@@ -6,6 +6,15 @@ export interface Product {
   id: string;
   description: string;
   imageURL: any;
-
+  status:string;
 
 }
+export interface CountList {
+  total: number;
+  inProgress: number;
+  onRoute: number;
+  completed: number;
+
+}
+
+

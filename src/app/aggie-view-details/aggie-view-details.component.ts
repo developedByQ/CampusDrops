@@ -68,9 +68,29 @@ export class AggieViewDetailsComponent implements OnInit {
         .child(key)
         .update(obj)
         .then(() => {
-          alert('order place successfully.');
+          // alert('order place successfully.');
           this.router.navigateByUrl('/aggiehome');
         });
+
+    this.updateCount(key)
     }
+  }
+  updateCount(key: any) {
+    let obj={
+      quantity:--this.itemDetail.quantity
+    }
+    firebase
+    .database()
+    .ref()
+    .child('allItems')
+    .child(key)
+    .update(obj)
+    .then(() => {
+      alert('Order placed Successfully');
+    })
+    .catch((error) => {});
+}
+  gotoViewAllItems(){
+    this.router.navigate(['/viewitems']).then((r) => {});
   }
 }

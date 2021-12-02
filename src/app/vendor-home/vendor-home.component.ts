@@ -18,7 +18,21 @@ export class VendorHomeComponent implements OnInit {
   ngOnInit(): void {
 
   }
-
+  Accept(key: any) {
+    var obj = {
+      status: 'Ready',
+    };
+    firebase
+      .database()
+      .ref()
+      .child('order')
+      .child(key)
+      .update(obj)
+      .then(() => {
+        alert('Order is Ready');
+      })
+      .catch((error) => {});
+  }
 
   goToAddItem() {
     this.route.navigate(['/vendoradditem']).then((r) => {});
