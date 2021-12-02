@@ -1,35 +1,54 @@
-<button class="mt-4" style="float: right" (click)="goToSettings()" class="btn btn-primary auth-btn">Settings</button>
+<button
+  class="mt-4"
+  style="float: right"
+  (click)="goToSettings()"
+  class="btn btn-primary auth-btn"
+>
+  Settings
+</button>
 <h1 class="mt-4">Order Queue</h1>
-<br>
+<br />
 <table class="table table-active">
-    <tr>
-        <th>Name</th>
-        <th>Phone</th>
-        <th>Address</th>
-        <th>Price</th>
-        <th>Payment Method</th>
-        <th>Item</th>
-        <th>Image</th>
-        <th>Status</th>
-        <th>Action</th>
-    </tr>
-    <tr *ngFor="let item of split(this.service.orderlist,'one')">
-        <td>{{item.name}}</td>
-        <td>{{item.contact}}</td>
-        <td>{{item.address}}</td>
-        <td>{{item.price}}</td>
-        <td>{{item.payment}}</td>
-        <td>{{item.itemName}}</td>
-        <td>image</td>
-        <td>{{item.status}}</td>
-        <td><button *ngIf="item.status=='Ready'" (click)="Accept(item.orderkey)" class="btn btn-success">Accept</button>
-            <button *ngIf="item.status=='In Route'" class="btn btn-info">In Route</button>
-            <!-- <button *ngIf="item.status=='Complete'" class="btn btn-info">Complete</button> -->
-            <button *ngIf="item.status=='Pending'||item.status=='Assigned'" class="btn btn-primary">{{item.status}}</button>
-
-
-        </td>
-    </tr>
+  <tr>
+    <th>Name</th>
+    <th>Phone</th>
+    <th>Address</th>
+    <th>Price</th>
+    <th>Payment Method</th>
+    <th>Item</th>
+    <th>Image</th>
+    <th>Status</th>
+    <th>Action</th>
+  </tr>
+  <tr *ngFor="let item of split(this.service.orderlist, 'one')">
+    <td>{{ item.name }}</td>
+    <td>{{ item.contact }}</td>
+    <td>{{ item.address }}</td>
+    <td>{{ item.price }}</td>
+    <td>{{ item.payment }}</td>
+    <td>{{ item.itemName }}</td>
+    <td>image</td>
+    <td>{{ item.status }}</td>
+    <td>
+      <button
+        *ngIf="item.status == 'Ready'"
+        (click)="Accept(item.orderkey)"
+        class="btn btn-success"
+      >
+        Accept
+      </button>
+      <button *ngIf="item.status == 'In Route'" class="btn btn-info">
+        In Route
+      </button>
+      <!-- <button *ngIf="item.status=='Complete'" class="btn btn-info">Complete</button> -->
+      <button
+        *ngIf="item.status == 'Pending' || item.status == 'Assigned'"
+        class="btn btn-primary"
+      >
+        {{ item.status }}
+      </button>
+    </td>
+  </tr>
 </table>
 <h1 class="mt-4">My Queue</h1>
 <table class="table table-active">
@@ -44,19 +63,26 @@
     <th>Status</th>
     <th>Action</th>
   </tr>
-  <tr *ngFor="let item of split(this.service.orderlist,'two')">
-    <td>{{item.name}}</td>
-    <td>{{item.contact}}</td>
-    <td>{{item.address}}</td>
-    <td>{{item.price}}</td>
-    <td>{{item.payment}}</td>
-    <td>{{item.itemName}}</td>
+  <tr *ngFor="let item of split(this.service.orderlist, 'two')">
+    <td>{{ item.name }}</td>
+    <td>{{ item.contact }}</td>
+    <td>{{ item.address }}</td>
+    <td>{{ item.price }}</td>
+    <td>{{ item.payment }}</td>
+    <td>{{ item.itemName }}</td>
     <td>image</td>
-    <td>{{item.status}}</td>
-    <td>    <button *ngIf="item.status=='In Route'" (click)="InRoute(item.orderkey)" class="btn btn-info">In Route</button>
-      <button *ngIf="item.status=='Complete'" class="btn btn-info">Complete</button>
-
+    <td>{{ item.status }}</td>
+    <td>
+      <button
+        *ngIf="item.status == 'In Route'"
+        (click)="InRoute(item.orderkey)"
+        class="btn btn-info"
+      >
+        In Route
+      </button>
+      <button *ngIf="item.status == 'Complete'" class="btn btn-info">
+        Complete
+      </button>
     </td>
   </tr>
 </table>
-
