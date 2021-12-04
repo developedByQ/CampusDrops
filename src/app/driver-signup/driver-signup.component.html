@@ -9,13 +9,16 @@
     </li>
   </ul>
 </nav>
-    <div class="form-container">
-      <img class="profile-imageview" [src] ="profileImagePath">
-      <button type="button" class="btn btn-primary auth-btn" (click)="fileInput.click()">
-        <span>Select an Image</span>
-        <input #fileInput type="file" (change)="onFileInput($event)" style="display:none;" />
-      </button>
-    </div>
+<div class="form-container">
+  <img *ngIf="profileImagePath" class="profile-imageview" [src]="profileImagePath">
+  <ng-template #imageNotAvailable>
+    <img src="assets/no-picture-available.jpg" alt="Image not available" style="width:100%" mat-card-image>
+  </ng-template>
+  <button type="button" class="btn btn-primary auth-btn" (click)="fileInput.click()">
+    <span>Select an Image</span>
+    <input #fileInput type="file" (change)="onFileInput($event)" style="display:none;" />
+  </button>
+</div>
 <div class="registration-container">
   <div class="item">
     <label class="center-item">First Name</label>
@@ -32,7 +35,8 @@
   </div>
   <div class="item">
     <label>License Plate #</label>
-    <input ngModel name="licensePlate" #licensePlate="ngModel" type="text" class="form-control padding-below-tf textFields">
+    <input ngModel name="licensePlate" #licensePlate="ngModel" type="text"
+      class="form-control padding-below-tf textFields">
 
     <label>Vehicle Make</label>
     <input ngModel name="carMake" #carMake="ngModel" type="text" class="form-control padding-below-tf textFields">
@@ -47,9 +51,9 @@
 </div>
 
 <div class="button-box">
-  <button (click)="signUserUp(firstName, lastName, email, password, licensePlate, carMake, carModel, carYear)" class="btn btn-primary auth-btn signup">Sign Up</button>
+  <button (click)="signUserUp(firstName, lastName, email, password, licensePlate, carMake, carModel, carYear)"
+    class="btn btn-primary auth-btn signup">Sign Up</button>
 
   <label class="existingMember">Already a Member?</label>
   <button [routerLink]="'/driversignin'" class="btn btn-primary auth-btn">Sign In</button>
 </div>
-

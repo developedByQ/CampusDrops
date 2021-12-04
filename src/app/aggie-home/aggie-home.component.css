@@ -33,14 +33,61 @@
 
 /* Page content. The value of the margin-left property should match the value of the sidebar's width property */
 div.content {
-  margin-left: 200px;
-  padding: 1px 16px;
-  height: 1000px;
+  margin-left: 300px;
+  padding: 0px 16px;
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  min-height: 1350px;
+
+  align-content: flex-start;
+  row-gap: 75px;
+}
+
+.item-card {
+  height: 400px;
+  min-height: 400px;
+}
+
+.item-card img {
+  object-fit: cover;
+  min-height: 200px;
+  min-width: 300px;
+  margin: 2px;
+}
+
+.wrapper {
+  display: flex;
+}
+
+.mat-card {
+  min-height: 400px !important;
+  max-height: 400px !important;
+  min-width: 350px !important;
+  max-width: 350px!important;
+  display: flex;
+  flex-direction: column;
 }
 
 
+.mat-card-content  {
+  margin-top: auto;
+}
 
+.mat-card-content p {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.mat-card-content button {
+  margin-top: auto;
+}
 
+.item-desc {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 
 
 

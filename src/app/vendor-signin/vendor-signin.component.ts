@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {NgModel} from "@angular/forms";
+import { NgModel } from "@angular/forms";
 import firebase from "firebase";
-import {Router} from "@angular/router";
-import {delay} from 'utils-decorators';
+import { Router } from "@angular/router";
+import { delay } from 'utils-decorators';
 
 
 @Component({
@@ -28,7 +28,7 @@ export class VendorSigninComponent implements OnInit {
         console.log("User Signed In: " + user?.uid)
         // @ts-ignore
         this.getUserRole(user.uid);
-
+        localStorage.setItem('uid', user!.uid);
       })
       .catch((error) => {
         console.log("Error: " + error.message);
@@ -39,16 +39,17 @@ export class VendorSigninComponent implements OnInit {
   @delay(3000)
   getUserRole(uid: string) {
     var finalRole = "";
-    firebase.database().ref().child("users").once('value',(SnapShot)=>{
+    firebase.database().ref().child("users").once('value', (SnapShot) => {
       var role = SnapShot.child(uid).child("role").val();
       console.log(role);
-      if(role==0) {
-        this.route.navigate(["/aggiehome"]).then(r =>{});
-      }else if(role==1) {
-        this.route.navigate(["/vendorhome"]).then(r =>{});
-      }else if(role==2){
-        this.route.navigate(["/driverhome"]).then(r =>{});
-      }else{
+      localStorage.setItem('role', role);
+      if (role == 0) {
+        this.route.navigate(["/aggiehome"]).then(r => { });
+      } else if (role == 1) {
+        this.route.navigate(["/vendorhome"]).then(r => { });
+      } else if (role == 2) {
+        this.route.navigate(["/driverhome"]).then(r => { });
+      } else {
         alert('Error, please try again.')
       }
     });

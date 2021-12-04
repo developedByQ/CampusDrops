@@ -56,6 +56,7 @@ split(orderList:any,key:string){
       .signOut()
       .then(() => {
         console.log('logged out');
+        localStorage.clear();
         this.route.navigate(['/driversignin']).then((r) => {});
       })
       .catch((error) => {

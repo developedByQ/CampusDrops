@@ -81,6 +81,7 @@ export class SettingsComponent implements OnInit {
       .signOut()
       .then(() => {
         console.log('logged out');
+        localStorage.clear();
         this.route.navigate(['/vendorsignin']).then((r) => {});
       })
       .catch((error) => {

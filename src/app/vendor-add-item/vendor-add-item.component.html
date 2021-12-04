@@ -1,26 +1,28 @@
-
 <div class="form-group">
   <div class="form-container">
-    <img class="profile-imageview" [src] ="profileImagePath">
+    <img *ngIf="profileImagePath; else imageNotAvailable" class="profile-imageview" [src]="profileImagePath">
+    <ng-template #imageNotAvailable>
+      <img src="assets/no-picture-available.jpg" alt="Image not available" style="width:100%" mat-card-image>
+    </ng-template>
     <button type="button" class="btn btn-primary auth-btn" (click)="fileInput.click()">
       <span>Select an Image</span>
       <input #fileInput type="file" (change)="onFileInput($event)" style="display:none;" />
     </button>
 
-    <label class="first-name-label labels" >Item Name</label>
-    <input  [(ngModel)]="itemName" type="text" class="form-control padding-below-tf textFields">
+    <label class="first-name-label labels">Item Name</label>
+    <input [(ngModel)]="itemName" type="text" class="form-control padding-below-tf textFields">
 
-    <label >Category</label>
-    <input  [(ngModel)]="category" type="text" class="form-control padding-below-tf textFields">
+    <label>Category</label>
+    <input [(ngModel)]="category" type="text" class="form-control padding-below-tf textFields">
 
-    <label >Description</label>
-    <input  [(ngModel)]="description" type="text" class="form-control padding-below-tf textFields">
+    <label>Description</label>
+    <input [(ngModel)]="description" type="text" class="form-control padding-below-tf textFields">
 
-    <label >Price</label>
-    <input   [(ngModel)]="price"type="text" class="form-control padding-below-tf textFields">
+    <label>Price</label>
+    <input [(ngModel)]="price" type="text" class="form-control padding-below-tf textFields">
 
-    <label >Quantity</label>
-    <input   [(ngModel)]="quantity"type="text" class="form-control padding-below-tf textFields">
+    <label>Quantity</label>
+    <input [(ngModel)]="quantity" type="text" class="form-control padding-below-tf textFields">
 
     <button (click)="saveImageToStorage()" class="btn btn-primary auth-btn signup">Upload</button>
 

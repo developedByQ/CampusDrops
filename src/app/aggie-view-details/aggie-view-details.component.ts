@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MainService } from './../main.service';
 import { Router } from '@angular/router';
-import firebase from 'firebase';
+import firebase from "firebase";
 
 @Component({
   selector: 'app-aggie-view-details',
@@ -18,7 +18,6 @@ export class AggieViewDetailsComponent implements OnInit {
 
   constructor(public service: MainService, public router: Router) {
     if (this.service.globelId) {
-      //debugger;
       var index = this.service.itemList.findIndex(
         (ob: { itemID: any }) => ob.itemID == this.service.globelId
       );
@@ -41,6 +40,7 @@ export class AggieViewDetailsComponent implements OnInit {
       this.placeOrder();
     }
   }
+
 
   placeOrder() {
     var databaseRef = firebase.database().ref();
@@ -71,25 +71,25 @@ export class AggieViewDetailsComponent implements OnInit {
           this.router.navigateByUrl('/aggiehome');
         });
 
-      this.updateCount(key);
+    this.updateCount(key)
     }
   }
   updateCount(key: any) {
-    let obj = {
-      quantity: --this.itemDetail.quantity,
-    };
+    let obj={
+      quantity:--this.itemDetail.quantity
+    }
     firebase
-      .database()
-      .ref()
-      .child('allItems')
-      .child(key)
-      .update(obj)
-      .then(() => {
-        alert('Order placed Successfully');
-      })
-      .catch((error) => {});
-  }
-  gotoViewAllItems() {
+    .database()
+    .ref()
+    .child('allItems')
+    .child(key)
+    .update(obj)
+    .then(() => {
+      alert('Order placed Successfully');
+    })
+    .catch((error) => {});
+}
+  gotoViewAllItems(){
     this.router.navigate(['/viewitems']).then((r) => {});
   }
 }

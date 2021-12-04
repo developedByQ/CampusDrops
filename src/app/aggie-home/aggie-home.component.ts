@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import firebase from 'firebase';
 import { Router } from '@angular/router';
 import { MainService } from '../main.service';
-import { PlatformLocation } from '@angular/common';
 
 @Component({
   selector: 'app-aggie-home',
@@ -12,20 +11,14 @@ import { PlatformLocation } from '@angular/common';
 export class AggieHomeComponent implements OnInit {
   private route: Router;
   public currentVenderproductList: any = [];
-  userID: string = '';
 
-  constructor(
-    route: Router,
-    public service: MainService,
-    private location: PlatformLocation
-  ) {
+  constructor(route: Router, public service: MainService) {
     this.route = route;
   }
 
   ngOnInit(): void {
-    if (firebase.auth().currentUser?.uid) {
-      this.userID = firebase.auth().currentUser!.uid;
-    }
+    this.service.getAllItem();
+    this.service.getAllOrder();
     this.service.dataRec.subscribe(() => {
       for (var item in this.service.ItemList) {
         this.currentVenderproductList.push(this.service.ItemList[item]);

@@ -5,52 +5,32 @@
       <a [routerLink]="'/'" class="nav-link">Aggie Sign Up</a>
     </li>
     <li class="nav-item">
-      <a [routerLink]="'/driversignup'" class="nav-link driver-signup-link"
-        >Driver Sign Up</a
-      >
+      <a [routerLink]="'/driversignup'" class="nav-link driver-signup-link">Driver Sign Up</a>
     </li>
   </ul>
 </nav>
 
 <div class="form-group">
   <div class="form-container">
-    <img class="profile-imageview" [src]="profileImagePath" />
-    <button
-      type="button"
-      class="btn btn-primary auth-btn"
-      (click)="fileInput.click()"
-    >
+    <img *ngIf="profileImagePath; else imageNotAvailable" class="profile-imageview" [src]="profileImagePath" />
+    <ng-template #imageNotAvailable>
+      <img src="assets/no-picture-available.jpg" alt="Image not available" style="width:100%" mat-card-image>
+    </ng-template>
+    <button type="button" class="btn btn-primary auth-btn" (click)="fileInput.click()">
       <span>Select an Image</span>
-      <input
-        #fileInput
-        type="file"
-        (change)="onFileInput($event)"
-        style="display: none"
-      />
+      <input #fileInput type="file" (change)="onFileInput($event)" style="display: none" />
     </button>
     <label class="first-name-label labels">Business Name</label>
-    <input
-      [(ngModel)]="businessName"
-      type="text"
-      class="form-control textFields"
-    />
+    <input [(ngModel)]="businessName" type="text" class="form-control textFields" />
 
     <label>Business Address</label>
-    <input
-      [(ngModel)]="businessAddress"
-      type="text"
-      class="form-control textFields"
-    />
+    <input [(ngModel)]="businessAddress" type="text" class="form-control textFields" />
 
     <label>Business Email</label>
     <input [(ngModel)]="emails" type="text" class="form-control textFields" />
 
     <label>Password</label>
-    <input
-      [(ngModel)]="passwords"
-      type="text"
-      class="form-control textFields"
-    />
+    <input [(ngModel)]="passwords" type="text" class="form-control textFields" />
     <button (click)="getUserInfo()" class="btn btn-primary auth-btn signup">
       Sign Up
     </button>

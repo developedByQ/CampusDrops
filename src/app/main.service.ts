@@ -12,20 +12,19 @@ export class MainService {
   public itemList: any = [];
   public globelId: any;
   public checkoutList: any = [];
-  public countList:CountList={
-    total:0,
-    inProgress:0,
-    completed:0,
-    onRoute:0
+  public countList: CountList = {
+    total: 0,
+    inProgress: 0,
+    completed: 0,
+    onRoute: 0
   }
   public orderlist: any = [];
   public dataRec: Subject<any> = new Subject();
   constructor() {
     let uid: any = firebase.auth().currentUser?.uid;
-    this.getAllItem();
-    this.getAllOrder();
   }
   getAllItem() {
+    this.ItemList = [];
     firebase
       .database()
       .ref()
@@ -34,11 +33,18 @@ export class MainService {
         var data = SnapShot.val();
         for (var item in data) {
           this.ItemList.push(data[item]);
-          this.dataRec.next('data');
           console.log(this.ItemList);
         }
+        this.dataRec.next('data');
       });
   }
+  removeItem(id: any) {
+    return firebase
+      .database()
+      .ref()
+      .child(`allItems/${id}`).remove();
+  }
+
   getAllOrder() {
     firebase
       .database()
@@ -50,39 +56,40 @@ export class MainService {
         for (var item in data) {
           this.orderlist.unshift(data[item]);
         }
-      //  this.orderlist=this.sortList(this.orderlist);
+        //  this.orderlist=this.sortList(this.orderlist);
         let countListCopy = getListCount(this.orderlist)
-        this.countList=countListCopy
+        this.countList = countListCopy
       });
   }
   sortList(orderlist: any) {
-    var sortedObjs = _.sortBy( orderlist, 'status' );
-    sortedObjs=[...sortedObjs].reverse();
-    orderlist=sortedObjs;
-    return orderlist }
+    var sortedObjs = _.sortBy(orderlist, 'status');
+    sortedObjs = [...sortedObjs].reverse();
+    orderlist = sortedObjs;
+    return orderlist
+  }
 }
 
 
-function getListCount(orderList:Array<Product>) {
-  let list:CountList={
-    total:0,
-    inProgress:0,
-    completed:0,
-    onRoute:0
+function getListCount(orderList: Array<Product>) {
+  let list: CountList = {
+    total: 0,
+    inProgress: 0,
+    completed: 0,
+    onRoute: 0
   }
-  var assigned = orderList.filter(function (order:Product) {
-    return order.status=="Assigned"||order.status=="Ready"||order.status=="Pending";
+  var assigned = orderList.filter(function (order: Product) {
+    return order.status == "Assigned" || order.status == "Ready" || order.status == "Pending";
   });
-  var onRoute = orderList.filter(function (order:Product) {
-    return order.status=="In Route"
+  var onRoute = orderList.filter(function (order: Product) {
+    return order.status == "In Route"
   });
-  var completed = orderList.filter(function (order:Product) {
-    return order.status=="Complete"
+  var completed = orderList.filter(function (order: Product) {
+    return order.status == "Complete"
   });
- list.total=orderList.length;
+  list.total = orderList.length;
   list.inProgress = assigned.length;
-  list.onRoute=onRoute.length;
-  list.completed=completed.length;
+  list.onRoute = onRoute.length;
+  list.completed = completed.length;
   return list;
 }
 

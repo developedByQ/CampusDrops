@@ -17,7 +17,8 @@
   <input ngModel name="email" #email="ngModel" id="email" type="text" class="form-control  textFields">
 
   <label for="password">Password</label>
-  <input ngModel name="password" #password="ngModel" id="password" type="text" class="form-control textFields">
+  <input ngModel name="password" #password="ngModel" id="password" type="text" class="form-control textFields"
+    (keyup.enter)="signUserIn(email, password)">
 
   <button (click)="signUserIn(email, password)" class="btn btn-primary auth-btn signup">Sign In</button>
   <a [routerLink]="'/forgotpassword'" class="forgot-password nav-link mt-3 mb-3">Forgot Password?</a>
