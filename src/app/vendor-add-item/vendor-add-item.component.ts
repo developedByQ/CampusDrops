@@ -33,6 +33,7 @@ export class VendorAddItemComponent implements OnInit {
   }
   ngOnInit(): void {
     this.getVendorInfo();
+    console.log(Math.floor(Date.now()/1000));
   }
 
   onFileInput($event: Event) {
@@ -75,7 +76,7 @@ export class VendorAddItemComponent implements OnInit {
     let userID = firebase.auth().currentUser!.uid
     let itemRef = firebase.database().ref();
     let key: any = itemRef.push().key;
-
+    let currentTime = Math.floor(Date.now()/1000);
     itemRef.child('allItems').child(key).set({
       itemID: key,
       itemName: this.itemName,
@@ -86,7 +87,8 @@ export class VendorAddItemComponent implements OnInit {
       price: this.price,
       description: this.description,
       quantity: this.quantity,
-      itemImage: url
+      itemImage: url,
+      timestamp: currentTime
 
     }).then(r =>{
       this.route.navigate(['/vendorhome']).then(r =>{});

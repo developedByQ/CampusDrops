@@ -25,7 +25,7 @@ export class AggieSignupComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.checkIfLoggedIn();
+
   }
 
   onFileInput($event: Event) {

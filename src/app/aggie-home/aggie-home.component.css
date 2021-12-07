@@ -21,7 +21,7 @@
 
 /* Active/current link */
 .sidebar a.active {
-  background-color: #04AA6D;
+  background-color: #fdb927;
   color: white;
 }
 
@@ -89,6 +89,13 @@ div.content {
   text-overflow: ellipsis;
 }
 
+.remove-Button {
+  border-radius: 35px;
+  height: 36px;
+  text-align: center;
+  background-color: #004684;
+  border-color: #004684;
+}
 
 
 /* On screens that are less than 700px wide, make the sidebar into a topbar */

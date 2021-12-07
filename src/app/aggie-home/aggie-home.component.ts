@@ -30,4 +30,5 @@ export class AggieHomeComponent implements OnInit {
   viewItemDetail() {
     this.route.navigate(['/aggieviewdetail']).then((r) => {});
   }
+
 }

@@ -2,7 +2,7 @@
   <h4 class="navbar-brand">Sign Up</h4>
   <ul class="navbar-nav">
     <li class="nav-item">
-      <a [routerLink]="'/'" class="nav-link">Aggie Sign Up</a>
+      <a [routerLink]="'/aggiesignup'" class="nav-link">Aggie Sign Up</a>
     </li>
     <li class="nav-item">
       <a [routerLink]="'/vendorsignup'" class="nav-link driver-signup-link">Vendor Sign Up</a>
@@ -31,7 +31,7 @@
     <input ngModel name="email" #email="ngModel" type="text" class="form-control padding-below-tf textFields">
 
     <label>Password</label>
-    <input ngModel name="password" #password="ngModel" type="text" class="form-control padding-below-tf textFields">
+    <input ngModel name="password" #password="ngModel" type="password" class="form-control padding-below-tf textFields">
   </div>
   <div class="item">
     <label>License Plate #</label>

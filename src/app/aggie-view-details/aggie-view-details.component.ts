@@ -15,6 +15,7 @@ export class AggieViewDetailsComponent implements OnInit {
   public contact: string = '';
   showingBilling = true;
   public payment: string = '';
+  newCount = 100;
 
   constructor(public service: MainService, public router: Router) {
     if (this.service.globelId) {
@@ -29,7 +30,8 @@ export class AggieViewDetailsComponent implements OnInit {
     }
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+  }
   checkout(id: any) {
     var index = this.service.itemList.findIndex(
       (ob: { itemID: any }) => ob.itemID == id
@@ -71,25 +73,21 @@ export class AggieViewDetailsComponent implements OnInit {
           this.router.navigateByUrl('/aggiehome');
         });
 
-    this.updateCount(key)
+
+      this.updateItemCount(this.itemDetail.quantity)
     }
   }
-  updateCount(key: any) {
-    let obj={
-      quantity:--this.itemDetail.quantity
-    }
-    firebase
-    .database()
-    .ref()
-    .child('allItems')
-    .child(key)
-    .update(obj)
-    .then(() => {
-      alert('Order placed Successfully');
-    })
-    .catch((error) => {});
-}
+
   gotoViewAllItems(){
     this.router.navigate(['/viewitems']).then((r) => {});
+  }
+
+
+  updateItemCount(newCount: number) {
+    let itemRef = firebase.database().ref().child('allItems').child(this.itemDetail.itemID);
+    itemRef.update({
+      quantity: --this.itemDetail.quantity,
+    });
+
   }
 }
