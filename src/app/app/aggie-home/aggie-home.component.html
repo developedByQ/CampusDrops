@@ -1,0 +1,41 @@
+<nav class="navbar navbar-light">
+    <h4 class="navbar-brand">Welcome Aggies!</h4>
+    <ul class="navbar-nav">
+        <!--    <li class="nav-item">-->
+        <!--      <a [routerLink]="'/vendorsignup'" class="nav-link">Vendor Sign Up</a>-->
+        <!--    </li>-->
+        <!--    <li class="nav-item">-->
+        <!--      <a [routerLink]="'/driversignup'" class="nav-link driver-signup-link">Driver Sign Up</a>-->
+        <!--    </li>-->
+    </ul>
+</nav>
+
+<div class="wrapper">
+    <div class="sidebar">
+        <h4>Categories</h4>
+        <a class="active" href="/">Campus Needs</a>
+        <a href="/settings">Settings</a>
+    </div>
+
+    <!-- Page content -->
+    <div class="content">
+        <div class="item-card" *ngFor="let item of currentVenderproductList">
+            <mat-card>
+                <img *ngIf="item.itemImage; else imageNotAvailable" [src]="item.itemImage" alt="Product Image"
+                    style="width:100%" mat-card-image>
+                <ng-template #imageNotAvailable>
+                    <img src="assets/no-picture-available.jpg" alt="Image not available" style="width:100%"
+                        mat-card-image>
+                </ng-template>
+
+                <mat-card-content>
+                    <p>{{item.itemName}}</p>
+                    <p>${{item.price}}</p>
+                    <p class="item-desc">{{item.description}}</p>
+                    <button (click)="service.globelId=item.itemID;viewItemDetail()" class="btn btn-primary remove-Button">View
+                        Details</button>
+                </mat-card-content>
+            </mat-card>
+        </div>
+    </div>
+</div>

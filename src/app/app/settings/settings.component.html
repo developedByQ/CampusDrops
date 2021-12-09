@@ -1,0 +1,22 @@
+<div class="form-container">
+  <img *ngIf="profileImagePath; else imageNotAvailable" class="profile-imageview" [src]="profileImagePath">
+  <ng-template #imageNotAvailable>
+    <img src="assets/no-picture-available.jpg" alt="Image not available" style="width:100%" mat-card-image>
+  </ng-template>
+  <button type="button" class="btn btn-primary auth-btn" (click)="fileInput.click()">
+    <span>Select an Image</span>
+    <input #fileInput type="file" (change)="onFileInput($event)" style="display:none;" />
+  </button>
+
+  <label class="first-name-label labels mt-4">Email</label>
+  <input type="text" class="form-control padding-below-tf textFields">
+
+  <label class="first-name-label labels mt-4">Name</label>
+  <input [(ngModel)]="name" type="text" class="form-control padding-below-tf textFields mb-4">
+
+  <button (click)="getUserInfo()" class="mt-4 btn btn-primary auth-btn">Update Profile</button>
+  <label class="mt-4 mb-4">If you're a Vendor or Driver, email us to update your business's or vehicle's information:
+    campusdropoff@gmail.com</label>
+
+  <button (click)="signUserOut()" class="mt-4 btn btn-primary auth-btn">Sign Out</button>
+</div>

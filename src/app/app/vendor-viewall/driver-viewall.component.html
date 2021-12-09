@@ -1,0 +1,24 @@
+<div xmlns="http://www.w3.org/1999/html">
+
+  <h1 style="text-align: center" class="mt-4">{{vendorName}}</h1>
+
+  <div class="content">
+    <div class="item-card" *ngFor="let item of currentVenderproductList">
+      <mat-card>
+        <img *ngIf="item.itemImage; else imageNotAvailable" [src]="item.itemImage" alt="Avatar" style="width:100%"
+          mat-card-image>
+        <ng-template #imageNotAvailable>
+          <img src="assets/no-picture-available.jpg" alt="Image not available" style="width:100%" mat-card-image>
+        </ng-template>
+        <mat-card-content>
+          <p>{{item.itemName}}</p>
+          <p>{{item.price}}</p>
+          <p>{{item.description}}</p>
+          <button *ngIf="isVendor" class="btn btn-primary" (click)="deleteItem(item)">Remove</button>
+          <button *ngIf="!isVendor" class="btn btn-primary" routerLink='/aggieviewdetail'>View Details</button>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+
+</div>

@@ -1,0 +1,60 @@
+<div class="split left">
+    <img class="image-imageview" [src]="itemDetail.itemImage ||'assets/placeholder.png'">
+    <h1 class="pt-3">${{itemDetail.price}}</h1>
+    <h2 class="pt-3">{{itemDetail.itemName}}</h2>
+    <h4 class="pt-3">Quantity: {{itemDetail.quantity}}</h4>
+    <h4 class="pt-3 mb-4">{{itemDetail.description}}</h4>
+
+  <br>
+  <br>
+  <br>
+  <div>
+    <div style="float: left;cursor: pointer;" (click)="gotoViewAllItems()" class="mt-4"><img class="vendor-avitar" [src]="itemDetail.vendorImage ||'assets/placeholder.png'"></div>
+  <div style="float: left;cursor: pointer;" (click)="gotoViewAllItems()" class="mt-3"><h4>{{itemDetail.vendorName}}</h4></div>
+  </div>
+
+</div>
+
+<div class="split right">
+  <div class="form-container">
+
+    <h2>Shipping Options</h2>
+      <label class="pt-3">Name</label>
+      <input ngModel name="name"  type="text" class="form-control padding-below-tf textFields">
+
+      <label class="pt-3">Address</label>
+      <input ngModel name="address"  type="text" class="form-control padding-below-tf textFields">
+
+      <label class="pt-3">Phone</label>
+      <input ngModel name="phone"  type="text" class="form-control padding-below-tf textFields">
+
+    <div class="form-check pt-4">
+      <input class="form-check-input" name="payment" type="radio" value="cash" id="flexCheckDefault">
+      <label class="form-check-label" for="flexCheckDefault">
+        Cash On Delivery
+      </label>
+    </div>
+    <div class="form-check pb-4">
+      <input class="form-check-input" name="payment" type="radio" value="card" id="flexCheckChecked">
+      <label class="form-check-label" for="flexCheckChecked">
+        Online Payment
+      </label>
+    </div>
+
+    <div *ngIf="showingBilling">
+      <h2 class="pt-3">Billing Options</h2>
+      <label class="pt-3">Card Number</label>
+      <input ngModel name="name"  type="text" class="form-control textFields">
+
+      <label class="pt-3">Exp. Date</label>
+      <input ngModel name="address"  type="text" class="form-control short-textFields">
+
+      <label class="pt-3">CVV</label>
+      <input ngModel name="phone"  type="text" class="form-control short-textFields mb-4">
+
+      <button (click)="checkout(itemDetail.itemID)" class="btn btn-primary purchase-btn mt-4">Purchase</button>
+    </div>
+
+    </div>
+
+</div>

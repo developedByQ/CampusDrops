@@ -1,0 +1,61 @@
+/* Split the screen in half */
+.split {
+  height: 100%;
+  width: 50%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+/* Control the left side */
+.left {
+  left: 0;
+  margin-left: 60px;
+}
+
+.right {
+  right: 0;
+  padding-left: 60px;
+}
+
+.form-container {
+  padding-top: 60px;
+}
+
+.image-imageview {
+  width: 300px;
+  height: 300px;
+  margin-top: 75px;
+  margin-bottom: 45px;
+  justify-content: center;
+}
+
+.textFields {
+  width: 80%;
+  border-radius: 12px;
+}
+
+.short-textFields {
+  width: 40%;
+  border-radius: 12px;
+}
+
+.purchase-btn {
+  margin-bottom: 30px;
+  border-radius: 35px;
+  width: 220px;
+  align-content: center;
+  height: 48px;
+  background-color: #002D74;
+  border-width: 0px;
+}
+
+.vendor-avitar {
+  border-radius: 50%;
+  width: 125px;
+  height: 125px;
+}
+
+

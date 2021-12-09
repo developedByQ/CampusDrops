@@ -1,0 +1,43 @@
+<nav class="navbar navbar-light">
+  <h4 class="navbar-brand">Sign Up</h4>
+  <ul class="navbar-nav">
+    <li class="nav-item">
+      <a [routerLink]="'/aggiesignup'" class="nav-link">Aggie Sign Up</a>
+    </li>
+    <li class="nav-item">
+      <a [routerLink]="'/driversignup'" class="nav-link driver-signup-link">Driver Sign Up</a>
+    </li>
+  </ul>
+</nav>
+
+<div class="form-group">
+  <div class="form-container">
+    <img *ngIf="profileImagePath; else imageNotAvailable" class="profile-imageview" [src]="profileImagePath" />
+    <ng-template #imageNotAvailable>
+      <img src="assets/no-picture-available.jpg" alt="Image not available" style="width:100%" mat-card-image>
+    </ng-template>
+    <button type="button" class="btn btn-primary auth-btn" (click)="fileInput.click()">
+      <span>Select an Image</span>
+      <input #fileInput type="file" (change)="onFileInput($event)" style="display: none" />
+    </button>
+    <label class="first-name-label labels">Business Name</label>
+    <input [(ngModel)]="businessName" type="text" class="form-control textFields" />
+
+    <label>Business Address</label>
+    <input [(ngModel)]="businessAddress" type="text" class="form-control textFields" />
+
+    <label>Business Email</label>
+    <input [(ngModel)]="emails" type="text" class="form-control textFields" />
+
+    <label>Password</label>
+    <input [(ngModel)]="passwords" type="password" class="form-control textFields" />
+    <button (click)="getUserInfo()" class="btn btn-primary auth-btn signup">
+      Sign Up
+    </button>
+
+    <label class="existingMember">Already a Member?</label>
+    <button [routerLink]="'/vendorsignin'" class="btn btn-primary auth-btn">
+      Sign In
+    </button>
+  </div>
+</div>
